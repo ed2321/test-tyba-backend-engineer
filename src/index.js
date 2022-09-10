@@ -1,10 +1,10 @@
-require('dotenv').config({ path: '../.env' })
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const app = express()
 const { HOST, PORT } = process.env
 
-// middleware
+//  middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
