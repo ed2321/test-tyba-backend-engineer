@@ -1,0 +1,15 @@
+{
+  "name": "test-tyba-backend-engineer",
+  "version": "1.0.0",
+  "description": "test tyba backend engineer - API rest",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ed2321/test-tyba-backend-engineer.git"
+  },
+  "author": "edinsonduranrojas@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ed2321/test-tyba-backend-engineer/issues"
+  },
+  "homepage": "https://github.com/ed2321/test-tyba-backend-engineer#readme"
+}
