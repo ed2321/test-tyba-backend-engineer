@@ -1,32 +1,34 @@
 version: "3"
 
 services:
-  tyba-api:
+  dynamodb-local:
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "6000:6000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+    networks:
+      - network-api
+
+  api:
+    depends_on:
+      - dynamodb-local
+    links:
+      - dynamodb-local
     build: ./src
-    hostname: tyba-api
-    container_name: tyba-api
+    container_name: api
     restart: always
+    volumes:
+      - ./src:/src
+      - /src/node_modules
+    networks:
+      - network-api
     ports:
       - 4000:4000
-    volumes:
-    - ./src:/src
-    - /src/node_modules
-  redis:
-    image: redis:latest
-    container_name: redis
-    ports:
-      - 6379:6379
-    volumes:
-      - redis-data:/data
-  mongo:
-      image: mongo:latest
-      container_name: mongo
-      ports:
-        - 27017:27017
-      volumes:
-        - mongo-data:/data/db
-        - mongo-config:/data/configdb
-volumes:
-  redis-data:
-  mongo-data:
-  mongo-config:
+
+networks:
+  network-api:
+    driver: bridge
