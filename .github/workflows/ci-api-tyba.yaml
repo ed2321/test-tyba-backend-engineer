@@ -21,7 +21,9 @@ jobs:
       - name: Install dependencies for linter
         run: npm i
       - name: Run linter
-        run: npm run lint
+        run: |
+          cd ${{ env.PROJECT_DIRECTORY }}
+          npm run lint
       - name: Install dependencies
         run: |
           cd ${{ env.PROJECT_DIRECTORY }}
