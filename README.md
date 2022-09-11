@@ -91,7 +91,7 @@ GET api/restaurant
 curl --request GET \
   --url http://0.0.0.0:4000/api/restaurant \
   --header 'Content-Type: application/json' \
-  --header 'x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyOTlkMGZjLTUyY2UtNDdmYS1hNTY0LWI4YWQxNTgyNzQxMSIsImVtYWlsIjoiZWRpbnNvbmR1cmFucm9qYXNAZ21haWwuY29tIiwiaWF0IjoxNjYyODYxMjUzLCJleHAiOjE2NjI4Njg0NTN9.svhjzyaQ6kRUpB1gAwLxyCoG_n7K-9eWU8DckUIDc_U' \
+  --header 'x-access-token: TOKEN_ACCESS' \
   --data '{
 	"city": "cucuta colombia"
 }'
