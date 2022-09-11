@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const routes = require('./routes')
+
 const { HOST, PORT } = process.env
 
 //  middleware
@@ -9,13 +11,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
-// Routes
-// app.use(require("./src/routes/users"));
-// app.use(require("./src/routes/geolocation"));
-// app.use(require("./src/routes/logs"));
+//  Connect all our routes to our application
+app.use('/', routes)
 
 app.get('/', (_req, res) => {
-    res.send('Hello, world!!')
+    res.send('Hello, world..!!')
 })
 
 app.listen(PORT, HOST)
